@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // In a real application, we would handle the payment and server-side processing here.
             // For this fake foundation, we'll just show a success message.
             if (message) {
-                message.textContent = `Thank you, ${fullName}! Your $1,000 donation has been received. Your 3 Amigos certificate and pin are on their way!`;
+                message.textContent = `Thank you, ${fullName}! Your $10,000 donation has been received. Your 3 Amigos certificate and pin are on their way!`;
                 message.style.display = 'block';
                 message.style.color = '#2e7d32';
                 form.reset();
