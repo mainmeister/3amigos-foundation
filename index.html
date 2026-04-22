@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The 3 Amigos Foundation</title>
+    <meta
+            name="description"
+            content="A fan tribute to Three Amigos! featuring honorary membership, a certificate, and a collectible pin."
+    />
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f1ea;
+            color: #3e2723;
+        }
+        header {
+            background-color: #3e2723;
+            color: #f4f1ea;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .intro {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .intro img {
+            max-width: 100%;
+            height: auto;
+            border: 5px solid #3e2723;
+            margin-bottom: 20px;
+        }
+        .characters {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        .signup-form {
+            background-color: #eee;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .signup-form h2 {
+            margin-top: 0;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .donation-info {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #d32f2f;
+            margin-bottom: 15px;
+        }
+        button {
+            background-color: #3e2723;
+            color: #f4f1ea;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #5d4037;
+        }
+        .pin-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .pin-section img {
+            width: 150px;
+            height: auto;
+            border-radius: 50%;
+            border: 2px solid #3e2723;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>The 3 Amigos Foundation</h1>
+    </header>
+
+    <div class="container">
+        <section class="intro">
+            <p>Welcome to The 3 Amigos Foundation, inspired by the legendary Three Amigos! themselves:
+                <strong>Lucky Day</strong> <a href="https://www.imdb.com/name/nm0000188/?ref_=ttrv_fcr_3_1" target="_blank"><i>Steve Martin</i></a>,
+                <strong>Dusty Bottoms</strong> <a href="https://www.imdb.com/name/nm0000331/?ref_=ttrv_fcr_3_2" target="_blank"><i>Chevy Chase</i></a>,
+                and <strong>Ned Nederlander</strong> <a href="https://www.imdb.com/name/nm0001737/?ref_=ttrv_fcr_3_3" target="_blank"><i>Martin Short</i></a>.</p>
+            <p>Our mission is to spread the spirit of camaraderie and heroism through fictional (but very impressive-looking) certificates and pins.</p>
+            <img src="williammain.png" alt="Example Certificate for The 3 Amigos Foundation" />
+        </section>
+
+        <section class="characters">
+            <span>Lucky Day</span>
+            <span>Dusty Bottoms</span>
+            <span>Ned Nederlander</span>
+        </section>
+
+        <section class="signup-form">
+            <h2>Join the Foundation</h2>
+            <p>Sign up today and receive your official certificate and limited-edition 3 Amigos pin!</p>
+            <p class="donation-info">Donation amount: $1,000.00</p>
+            <form id="foundation-signup">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                </div>
+                <button type="submit">Sign Up and Donate $1,000</button>
+            </form>
+            <p id="message" style="margin-top: 15px; text-align: center; display: none;"></p>
+        </section>
+
+        <section class="pin-section">
+            <h3>Our Collector's Pin</h3>
+            <p>You'll also receive our exclusive pin featuring '3 Amigos' in black on white.</p>
+            <img src="Pin.png" alt="3 Amigos Foundation Pin" />
+        </section>
+    </div>
+
+    <script src="./dist/index.js"></script>
+</body>
+</html>
