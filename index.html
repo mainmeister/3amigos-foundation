@@ -10,134 +10,342 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #3e2723;
+            --primary-light: #5d4037;
+            --secondary-color: #d32f2f;
+            --accent-color: #fbc02d;
+            --bg-color: #fdfbf7;
+            --card-bg: #ffffff;
+            --text-color: #3e2723;
+            --text-muted: #6d4c41;
+            --border-radius: 12px;
+            --shadow: 0 10px 30px rgba(62, 39, 35, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.8;
             margin: 0;
             padding: 0;
-            background-color: #f4f1ea;
-            color: #3e2723;
+            background-color: var(--bg-color);
+            background-image: radial-gradient(#e0dcd3 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
+            color: var(--text-color);
         }
-        header {
-            background-color: #3e2723;
+
+        header.hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a0f0d 100%);
             color: #f4f1ea;
-            padding: 20px 0;
+            padding: 100px 20px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
+
+        header.hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0 0 L100 100 M100 0 L0 100" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></svg>');
+            opacity: 0.3;
+        }
+
         h1 {
             font-family: 'Dancing Script', cursive;
+            font-size: 4.5rem;
             margin: 0;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
+
+        .hero p.tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin: 20px 0 40px;
+            color: #d7ccc8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(251, 192, 45, 0.4);
+            transition: var(--transition);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(251, 192, 45, 0.6);
+            background-color: #ffd54f;
+        }
+
         .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            margin: -60px auto 60px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
         }
+
+        section {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 50px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(62, 39, 35, 0.05);
+        }
+
         .intro {
             text-align: center;
-            margin-bottom: 30px;
         }
+
+        h2, h3 {
+            font-family: 'Dancing Script', cursive;
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        h2 { font-size: 3rem; }
+        h3 { font-size: 2.5rem; }
+
+        .section-divider {
+            height: 2px;
+            width: 80px;
+            background: var(--accent-color);
+            margin: 20px auto 40px;
+            border-radius: 2px;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
         .intro img {
             max-width: 100%;
             height: auto;
-            border: 5px solid #3e2723;
-            margin-bottom: 20px;
-        }
-        .characters {
-            display: flex;
-            justify-content: space-around;
-            margin-bottom: 30px;
-            font-weight: bold;
-        }
-        .signup-form {
-            background-color: #eee;
-            padding: 20px;
             border-radius: 8px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border: 8px solid white;
+            margin: 40px 0;
+            transition: var(--transition);
         }
-        .signup-form h2 {
-            margin-top: 0;
+
+        .intro img:hover {
+            transform: scale(1.02);
         }
+
+        .signup-form {
+            background-color: #fff;
+            border-top: 5px solid var(--secondary-color);
+        }
+
+        .donation-badge {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(211, 47, 47, 0.3);
+        }
+
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 25px;
+            text-align: left;
         }
+
         .form-group label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
         }
+
         .form-group input {
             width: 100%;
-            padding: 10px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            padding: 15px 20px;
+            font-size: 1rem;
+            font-family: inherit;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            transition: var(--transition);
+            background-color: #fafafa;
         }
-        .donation-info {
-            font-weight: bold;
-            font-size: 1.2em;
-            color: #d32f2f;
-            margin-bottom: 15px;
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            background-color: #fff;
+            box-shadow: 0 0 0 4px rgba(93, 64, 55, 0.1);
         }
-        button {
-            background-color: #3e2723;
+
+        .submit-btn {
+            background-color: var(--primary-color);
             color: #f4f1ea;
-            padding: 10px 20px;
+            padding: 18px 30px;
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 1em;
+            font-size: 1.1rem;
+            font-weight: 600;
             width: 100%;
+            transition: var(--transition);
+            margin-top: 10px;
         }
-        button:hover {
-            background-color: #5d4037;
+
+        .submit-btn:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(62, 39, 35, 0.3);
         }
+
         .pin-section {
             text-align: center;
+        }
+
+        .pin-container {
+            position: relative;
+            display: inline-block;
             margin-top: 30px;
         }
+
         .pin-section img {
             width: 100%;
-            max-width: 800px;
+            max-width: 400px;
             height: auto;
             border-radius: 50%;
-            border: 2px solid #3e2723;
+            border: 10px solid white;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
         }
+
+        .limited-edition-label {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            transform: rotate(15deg);
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+
         footer {
             text-align: center;
-            padding: 20px 0;
-            background-color: #3e2723;
-            color: #f4f1ea;
-            margin-top: 40px;
+            padding: 60px 20px;
+            background-color: var(--primary-color);
+            color: #d7ccc8;
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
         footer a {
             color: #f4f1ea;
-            text-decoration: underline;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 2px;
+            transition: var(--transition);
+        }
+
+        footer a:hover {
+            color: var(--accent-color);
+            border-bottom-color: var(--accent-color);
+        }
+
+        .footer-divider {
+            width: 40px;
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+            margin: 20px auto;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            .hero p.tagline { font-size: 1.2rem; }
+            section { padding: 30px 20px; }
+            .container { margin-top: -40px; }
+            h2 { font-size: 2.2rem; }
+            h3 { font-size: 1.8rem; }
+        }
+
+        /* Small animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        section {
+            animation: fadeIn 0.8s ease-out forwards;
         }
     </style>
 </head>
 <body>
-    <header>
+    <header class="hero">
         <h1>The 3 Amigos Foundation</h1>
+        <p class="tagline">Camaraderie, Heroism, and the Spirit of the Sierra Madre.</p>
+        <a href="#foundation-signup" class="cta-button">Join Our Brotherhood</a>
     </header>
 
     <div class="container">
         <section class="intro">
-            <p>Welcome to The 3 Amigos Foundation, inspired by the legendary Three Amigos! themselves:
-                <strong>Lucky Day</strong> <a href="https://www.imdb.com/name/nm0000188/?ref_=ttrv_fcr_3_1" target="_blank"><i>Steve Martin</i></a>,
-                <strong>Dusty Bottoms</strong> <a href="https://www.imdb.com/name/nm0000331/?ref_=ttrv_fcr_3_2" target="_blank"><i>Chevy Chase</i></a>,
-                and <strong>Ned Nederlander</strong> <a href="https://www.imdb.com/name/nm0001737/?ref_=ttrv_fcr_3_3" target="_blank"><i>Martin Short</i></a>.</p>
+            <h2>Welcome, Amigo</h2>
+            <div class="section-divider"></div>
+            <p>Inspired by the legendary Three Amigos! themselves:</p>
+            <p style="font-style: italic; color: var(--text-muted);">
+                <strong>Lucky Day</strong> <a href="https://www.imdb.com/name/nm0000188/?ref_=ttrv_fcr_3_1" target="_blank" style="color: var(--primary-light);">Steve Martin</a>,
+                <strong>Dusty Bottoms</strong> <a href="https://www.imdb.com/name/nm0000331/?ref_=ttrv_fcr_3_2" target="_blank" style="color: var(--primary-light);">Chevy Chase</a>,
+                and <strong>Ned Nederlander</strong> <a href="https://www.imdb.com/name/nm0001737/?ref_=ttrv_fcr_3_3" target="_blank" style="color: var(--primary-light);">Martin Short</a>.
+            </p>
             <p>Our mission is to spread the spirit of camaraderie and heroism through fictional (but very impressive-looking) certificates and pins.</p>
-            <img src="3 Amigos Template-1.png" alt="Example Certificate for The 3 Amigos Foundation" />
+            
+            <div style="margin-top: 40px;">
+                <img src="3 Amigos Template-1.png" alt="Example Certificate for The 3 Amigos Foundation" />
+                <p style="font-size: 0.9rem; color: var(--text-muted);">The Official Certificate of Honorary Membership</p>
+            </div>
         </section>
 
-        <section class="signup-form">
-            <h2>Join the Foundation</h2>
-            <p>Sign up today and receive your official certificate and limited-edition 3 Amigos pin!</p>
-            <p class="donation-info">Donation amount: $10,000.00</p>
+        <section id="signup-section" class="signup-form">
+            <div style="text-align: center;">
+                <h2>Join the Foundation</h2>
+                <div class="section-divider"></div>
+                <p>Sign up today and receive your official certificate and limited-edition 3 Amigos pin!</p>
+                <div class="donation-badge">Donation: $10,000.00</div>
+            </div>
+
             <form id="foundation-signup">
                 <div class="form-group">
                     <label for="fullName">Full Name</label>
@@ -147,20 +355,27 @@
                     <label for="email">Email Address</label>
                     <input type="email" id="email" name="email" required placeholder="Enter your email address">
                 </div>
-                <button type="submit">Sign Up and Donate $10,000</button>
+                <button type="submit" class="submit-btn">Complete Your Donation</button>
             </form>
-            <p id="message" style="margin-top: 15px; text-align: center; display: none;"></p>
+            <p id="message" style="margin-top: 25px; text-align: center; display: none; font-weight: 600; color: var(--secondary-color);"></p>
         </section>
 
         <section class="pin-section">
-            <h3>Our Collector's Pin</h3>
-            <p>You'll also receive our exclusive pin featuring '3 Amigos' in black on white.</p>
-            <img src="Pin.png" alt="3 Amigos Foundation Pin" />
+            <h3>The Collector's Pin</h3>
+            <div class="section-divider"></div>
+            <p>An exclusive emblem of your dedication to the Three Amigos legacy.</p>
+            <div class="pin-container">
+                <img src="Pin.png" alt="3 Amigos Foundation Pin" />
+                <span class="limited-edition-label">LIMITED EDITION</span>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: var(--text-muted);">Featuring '3 Amigos' in classic black on white.</p>
         </section>
     </div>
 
     <footer>
+        <div class="footer-divider"></div>
         <p>Visit the official <a href="https://github.com/mainmeister/3amigos-foundation" target="_blank">GitHub Repository</a></p>
+        <p style="margin-top: 15px; opacity: 0.6; font-size: 0.8rem;">&copy; 2026 The 3 Amigos Foundation. No real money will be taken, but the spirit is real.</p>
     </footer>
 
     <script src="./dist/index.js"></script>
