@@ -1,7 +1,7 @@
 {
   "name": "3amigos",
   "version": "1.0.0",
-  "description": "",
+  "description": "A fan tribute to Three Amigos! featuring honorary membership, a certificate, and a collectible pin.",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc"
